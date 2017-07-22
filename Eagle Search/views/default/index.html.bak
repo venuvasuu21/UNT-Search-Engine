@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{=T.accepted_language or 'en'}}"> <!--<![endif]-->
+<head>
+     <title>UNT Search</title>
+     <link rel="stylesheet" type="text/css" href="{{=URL('static','css/search.css')}}">
+</head>
+<body>
+    <div id="content">
+        <div class="search_content">
+            <div class="search_logo">
+                <img src="{{=URL('static','images/home_logo.png')}}" alt="Search UNT" align="center">
+            </div>
+            <div class="search_form">
+                {{=form}}
+            </div>
+        </div>
+    </div>
+</body>

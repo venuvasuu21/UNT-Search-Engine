@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{=T.accepted_language or 'en'}}"> <!--<![endif]-->
+<head>
+    <title>UNT Search</title>
+    <link rel="shortcut icon" href="{{=URL('static','images/unt_logo.ico')}}"/>
+    <link rel="stylesheet" href="{{=URL('static','css/search.css')}}"/>
+</head>
+<body>
+    <div id="result_content">
+        <div class="header">
+            <div class="unt_logo">
+                <a href="index"><img src="{{=URL('static','images/unt_logo.png')}}"></a>
+            </div>
+            <div class="search_bar">
+                {{=form}}
+            </div>
+        </div>
+        <div id="main-content">
+            <div class="right-nav">
+                {{if results_disp:}}
+                <div class="results-stats"><span>About {{=num_results}} results ({{=time_retr}} seconds) </span></div>
+                <div class="all-links">
+                    <ul>
+                        {{for key,val in results_disp :}}
+                        <div class="link-content">
+                            <li class="link-title">
+                                {{if len(val) > 55:}}
+                                <a href="{{=key}}">
+                                    {{=val[:55]}}
+                                </a><span class="adot">...</span>
+                                {{else:}}
+                                <a href="{{=key}}">
+                                    {{=val}}
+                                </a>
+                                {{pass}}
+                            </li>
+                            <li class="link">{{=key}}</li>
+                        </div>
+                        {{pass}}
+                    </ul>
+                </div>
+                <div class="page-nav">
+                    {{if prev != None:}}
+                    <a href='search_text?q={{=q}}&page={{=prev}}' class="prev-page"><span>&lt; Previous</span></a>
+                    {{pass}}
+                    <span class="pageno">{{if nxt != None:}} {{=nxt}} {{else:}} 1 {{pass}} of {{=num_pages+1}}</span>
+                    {{if nxt != None:}}
+                    <a href="search_text?q={{=q}}&page={{=nxt}}" class="nxt-page"><span>Next &gt;</span></a>
+                    {{pass}}
+                </div>
+                {{pass}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
