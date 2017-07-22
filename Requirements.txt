@@ -1,0 +1,6 @@
+Requirements:
+
+1) Python2.7
+2) beautifulsoup4
+3) sqllite
+4) web2py framework
